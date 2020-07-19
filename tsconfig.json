@@ -1,6 +1,7 @@
 {
+  "jsx": "react",
+  "include": ["./src"],
   "compilerOptions": {
-    "jsx": "react",
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Basic Options */

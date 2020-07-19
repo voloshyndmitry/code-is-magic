@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "extends": "./tsconfig.json", 
+    "exclude": "./src",
+    "include": ["./view"],
     "target": "es5",
     "lib": [
       "dom",
