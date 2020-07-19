@@ -1,4 +1,7 @@
 node_modules
 
-# build:
+# BE build:
 lib
+
+# FE build:
+build
