@@ -1,8 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
+import logo from '../static/logo.svg';
 import './App.css';
+import ReactGA from 'react-ga';
 
-function App() {
+export default () => {
+  useEffect(()=>{
+    ReactGA.initialize('UA-26375392-16');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
@@ -22,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
