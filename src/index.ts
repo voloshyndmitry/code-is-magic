@@ -2,7 +2,7 @@
 import express, { Request, Response } from "express";
 import bodyParser from 'body-parser';
 import path from "path";
-
+import { UrlController } from './Api/UrlController'
 const app = express();
 const PORT = process.env.PORT || 3002;
 
@@ -10,8 +10,6 @@ const PORT = process.env.PORT || 3002;
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../view/dist/view')));
 
-app.get('/url', (req: Request, res: Response) => {
-    res.json({})
-})
+new UrlController(app)
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));

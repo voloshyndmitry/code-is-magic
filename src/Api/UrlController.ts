@@ -2,9 +2,10 @@ import {Application, Request, Response} from 'express';
 import Constants from '../Constants';
 import {DBConnector} from '../DB/DBConnector';
 
-class UrlController {
+export class UrlController {
     private readonly app: Application;
     private constants = Constants
+    private dbConnector: DBConnector = new DBConnector
 
     constructor(app: Application) {
         this.app = app
@@ -12,11 +13,15 @@ class UrlController {
     }
 
     private setRequestHandlers() {
-        const {apiUrls: {getUrl}} = this.constants;
+        const { apiUrls: { getUrl } } = this.constants;
         this.app.get(getUrl, this.getUrl)
     }
 
-    private getUrl (req: Request, res: Response) {
-        res.send({'test': 'text'})
+    private getUrl = (req: Request, res: Response) => {
+        const { query: { code = '' } } = req;
+        const validCode = String(code).toUpperCase();
+        const idData = this.dbConnector.getUrlDataById(validCode)
+        const defaultData = { error: "Can`t find the code." }
+        res.json(idData || defaultData)
     }
 }
