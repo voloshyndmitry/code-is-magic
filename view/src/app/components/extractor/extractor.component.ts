@@ -14,7 +14,16 @@ export class ExtractorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getLink() {
-    this.link = this.code.value;
+  async getLink(): Promise<void> {
+    const { value } = this.code;
+    const baseUrl = 'http://localhost:3002';
+    const urlData = await fetch(`${baseUrl}/url?code=${value}`)
+      .then(e => e.json())
+      .catch(err => {
+        console.log(`Error:`, err);
+        return {};
+      });
+    console.table(urlData);
+    this.link = urlData?.url;
   }
 }
