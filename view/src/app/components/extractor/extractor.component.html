@@ -1,15 +1,14 @@
 <section>
-    <div class="header"></div>
+    <div class="header">Value: {{ link }}</div>
     <div class="body">
-        <form class="example-form">
+        <form class="extractor-form">
             <mat-form-field class="example-full-width">
             <mat-label>Введите ваш код</mat-label>
             <input matInput
             placeholder="Ex. DP1L1"
-            value=code
             [formControl]="code">
             </mat-form-field>
-            <button mat-raised-button color="primary">Получить ссылку</button>
+            <button mat-raised-button color="primary" (click)="getLink()">Получить ссылку</button>
         </form>
     </div>
 </section>
