@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-extractor',
@@ -7,11 +8,16 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./extractor.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExtractorComponent implements OnInit {
+export class ExtractorComponent implements OnInit, OnChanges {
   code = new FormControl('');
-  link: string;
+  link: BehaviorSubject<string> = new BehaviorSubject('');
+  link$: Observable<string> = this.link.asObservable();
 
   ngOnInit(): void {
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('-----', changes);
+
   }
 
   async getLink(): Promise<void> {
@@ -24,6 +30,6 @@ export class ExtractorComponent implements OnInit {
         return {};
       });
     console.table(urlData);
-    this.link = urlData?.url;
+    this.link.next(urlData?.url);
   }
 }
