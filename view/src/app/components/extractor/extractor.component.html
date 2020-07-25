@@ -19,7 +19,7 @@
                     <div *ngIf="!(data$ | async)?.id">Получить доступ к проекту можно, введя код в поле выше</div>
                     <div class="title" *ngIf="(data$ | async)?.id">Перейти к проекту "{{ (data$ | async)?.title }}"</div>
                     <div class="description" *ngIf="(data$ | async)?.id">*{{ (data$ | async)?.description }}</div>
-                    <div><a class="goto-btn" *ngIf="(data$ | async)?.id" mat-raised-button href="(data$ | async)?.url" target="_blank">Перейти</a></div>
+                    <div><a class="goto-btn" *ngIf="(data$ | async)?.id" mat-raised-button [href]="(data$ | async)?.url" target="_blank">Перейти</a></div>
                 </mat-card>
             </div>
         </form>
