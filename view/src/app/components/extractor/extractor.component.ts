@@ -22,7 +22,7 @@ export class ExtractorComponent {
   async getLink(): Promise<void> {
     const { value } = this.code;
     const baseUrlDev = 'http://localhost:3002';
-    const baseUrlProd = window.location.origin;
+    const baseUrlProd = 'http://code-is-magic.herokuapp.com';
     const baseUrl = environment.production ? baseUrlProd : baseUrlDev;
     const urlData = await fetch(`${baseUrl}/url?code=${value}`)
       .then(e => e.json())
