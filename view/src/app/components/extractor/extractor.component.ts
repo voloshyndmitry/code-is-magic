@@ -23,15 +23,16 @@ export class ExtractorComponent {
     const { value } = this.code;
     const baseUrlDev = 'http://localhost:3002';
     const baseUrlProd = window.location.origin;
-    const baseUrl = environment.production ? baseUrlProd : baseUrlDev;
+    const isProd = !!~window.location.origin.indexOf('heroku');
+    const baseUrl = isProd ? baseUrlProd : baseUrlDev;
     const urlData = await fetch(`${baseUrl}/url?code=${value}`)
       .then(e => e.json())
       .catch(err => {
         console.log(`Error:`, err);
         return {};
       });
-    console.table(urlData);
-    console.log(environment.production);
+    // console.table(urlData);
+    // console.log(environment.production);
     this.data.next(urlData);
   }
 }
