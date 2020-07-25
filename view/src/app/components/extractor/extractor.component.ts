@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+interface ExtractorData {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+}
 @Component({
   selector: 'app-extractor',
   templateUrl: './extractor.component.html',
@@ -12,6 +17,8 @@ export class ExtractorComponent implements OnInit, OnChanges {
   code = new FormControl('');
   link: BehaviorSubject<string> = new BehaviorSubject('');
   link$: Observable<string> = this.link.asObservable();
+  data: BehaviorSubject<ExtractorData> = new BehaviorSubject(null);
+  data$: Observable<ExtractorData> = this.data.asObservable();
 
   ngOnInit(): void {
   }
@@ -30,6 +37,6 @@ export class ExtractorComponent implements OnInit, OnChanges {
         return {};
       });
     console.table(urlData);
-    this.link.next(urlData?.url);
+    this.data.next(urlData);
   }
 }

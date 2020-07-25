@@ -1,7 +1,55 @@
 section {
+    .header {
+        width: 60%;
+        margin: 30px auto;
+        text-align: center;
+        .logo-container {
+            width: 90px;
+            text-align: center;
+            margin: 0 auto;
+            img {
+                width: 100%;
+            }
+        }
+        a {
+            color: #1473a9;
+            text-decoration: none;
+            font-weight: 800;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+    }
     .body {
         width: 60%;
         margin: 30px auto;
         text-align: center;
+        ::ng-deep button.mat-raised-button.mat-primary{
+            background-color: #328bbe;
+        }
+        ::ng-deep .mat-input-element
+         {
+            caret-color: #328bbe;
+        }
+        ::ng-deep .mat-focused {
+            .mat-form-field-label
+            {
+                color: #328bbe;
+            }
+            .mat-form-field-ripple {
+                background-color: #328bbe;
+            }
+        }
+        .title {
+            font-size: 18px;
+            color: #b7aa56;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #5d5c5c;;
+        }
+        .goto-btn {
+            color: rgb(50 139 190);
+            margin-top: 20px;
+        }
     }
 }
