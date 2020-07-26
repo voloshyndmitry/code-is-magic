@@ -12,7 +12,7 @@ const _urls =  [
         "id": "DP1L1",
         "title": "Nodejs: Hello world",
         "description": "How to build simple Nodejs application.",
-        "url": "https://github.com/voloshyndmitry/code-is-magic/"
+        "url": "https://github.com/voloshyndmitry/cim-school/tree/master/examples/nodejs-l1"
     },
     {
         "id": "LP1L1",
