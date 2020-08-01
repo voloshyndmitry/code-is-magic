@@ -15,6 +15,12 @@ const _urls =  [
         "url": "https://github.com/voloshyndmitry/cim-school/tree/master/examples/nodejs-l1"
     },
     {
+        "id": "DP2L1",
+        "title": "GIT: Part 1-2",
+        "description": "How to use Git?",
+        "url": "https://github.com/voloshyndmitry/cim-school/tree/master/examples/git-l1"
+    },
+    {
         "id": "LP1L1",
         "title": "Nodejs: Hello world",
         "description": "How to build simple Nodejs application.",
