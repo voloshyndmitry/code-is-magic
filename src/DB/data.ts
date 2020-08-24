@@ -31,5 +31,10 @@ const _urls =  [
         "title": "Nodejs: Hello world",
         "description": "How to build simple Nodejs application.",
         "url": "https://github.com/voloshyndmitry/code-is-magic/"
-    }
+    },{
+        "id": "DP3L1",
+        "title": "ReactJS: first project",
+        "description": "How to build your first react app.",
+        "url": "https://github.com/voloshyndmitry/cim-school/tree/master/examples/first-react-app/"
+    },
 ]
